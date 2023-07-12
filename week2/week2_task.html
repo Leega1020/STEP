@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content=""/>
+        <meta charset="utf-8">
+        <title>Task 1</title>
+    </head>
+    <body>
+<script>
+
+    function findAndPrint(messages){
+        
+        for(i in messages){
+            if(messages[i].includes("18 years old")||messages[i].includes("college student") 
+            ||messages[i].includes("legal age in Taiwan")||messages[i].includes("vote"))
+            console.log(i)
+        }
+     /*判斷準則
+     {"18 years old":18歲>17歲,
+     "college student":大學生通常大於17歲,
+     "legal age":台灣法定年齡為18,
+     "vote":美國投票年齡為18歲
+      }  */
+
+        
+
+} findAndPrint({
+"Bob":"My name is Bob. I'm 18 years old.",
+ "Mary":"Hello, glad to meet you.",
+"Copper":"I'm a college student. Nice to meet you.",
+"Leslie":"I am of legal age in Taiwan.",
+"Vivian":"I will vote for Donald Trump next week",
+"Jenny":"Good morning." });
+
+
+
+function calculateSumOfBonus(data){ 
+  
+  let aa={}
+  aa=data["employees"]
+  let per_bonus,role_bonus,total_bonus;
+  let all=[];
+  let sum=0;
+
+    for(i in aa){
+  
+    if(typeof(aa[i].salary)==="number"){aa[i].salary=(aa[i].salary).toString();}
+    
+    aa[i].salary=aa[i].salary.replace(",","");
+    if(aa[i].salary.includes("USD")===true){
+        aa[i].salary=aa[i].salary.replace("USD","")*30}
+            
+        if(aa[i].performance== "above average"){
+           per_bonus=aa[i].salary*0.08;}
+        else if(aa[i].performance=="average"){
+           per_bonus=aa[i].salary*0.05;}
+        else if(aa[i].performance=="below average"){
+           per_bonus=0;}
+           
+        if(aa[i].role== "Engineer"){
+           role_bonus=aa[i].salary*0.02;}
+        else if(aa[i].role=="CEO"){
+           role_bonus=aa[i].salary*0.03;}
+        else if(aa[i].role=="Sales"){
+           role_bonus=aa[i].salary*0.01;}
+           
+        total_bonus=per_bonus+role_bonus
+        all.push(total_bonus)
+        }
+    for (j in all){
+            sum+=all[j]
+            
+        }console.log(sum)
+        }
+calculateSumOfBonus(
+{"employees":[{
+            "name":"John",
+            "salary":"1000USD", 
+            "performance":"above average", 
+            "role":"Engineer"
+        },
+        {   "name":"Bob", 
+            "salary":60000,   
+            "performance":"average", 
+            "role":"CEO"
+        }, 
+        {   "name":"Jenny", 
+            "salary":"50,000", 
+            "performance":"below average", 
+            "role":"Sales"
+        } ]
+        }); 
+
+function func(...data){
+   let middle=[];
+   let middle2=[];
+   let nnew=[];
+   let index;
+    for(i in data){
+        middle.push(data[i].split("",3));
+        middle2.push(middle[i][1])}
+    for(let a=0;a<=middle2.length;a++){
+    if(middle2.indexOf(middle2[a])===middle2.lastIndexOf(middle2[a])){
+        nnew.push(middle2[a])
+    }
+ 
+}   index=middle2.indexOf(nnew[0])
+    
+    if(data[index]===undefined){
+       console.log("沒有")
+    }
+    else{console.log(data[index])}
+
+}
+
+
+func("彭大牆", "王明雅", "吳明"); 
+func("郭靜雅", "王立強", "林靜宜", "郭立恆", "林花花"); 
+func("郭宣雅", "林靜宜", "郭宣恆", "林靜花")
+function getNumber(index){
+let arr=[0];
+let sum=0;
+let i=0;
+
+while (i <=index+1){
+        sum+=4;
+        arr.push(sum);
+        sum=sum-1;
+        arr.push(sum);
+        i+=1;
+     };
+    console.log(arr[index]);
+}
+
+getNumber(1);
+getNumber(5); 
+getNumber(10);
+
+function findIndexOfCar(seats, status, number){
+
+let okseat=[] 
+let cloest;
+    for(let i=0;i<=status.length;i++){
+    if(status[i]==1 &&seats[i]>=number ){
+    okseat.push(seats[i])
+    okseat=okseat.sort()}}
+   
+    cloest=okseat[0]
+    if(cloest==undefined){
+        cloest=-1
+    }
+ 
+    for(let j=0;j<=seats.length;j++){
+    if(seats[j]==cloest){
+        console.log(j)
+    }
+    
+}
+    if (cloest==-1){
+        console.log("-1")
+    }
+}
+
+findIndexOfCar([3, 1, 5, 4, 2], [0, 1, 0, 1, 1], 2); 
+findIndexOfCar([1, 0, 5, 1, 3], [0, 1, 0, 1, 1], 4); 
+findIndexOfCar([4, 6, 5, 8], [0, 1, 1, 1], 4);
+  
+   
+    
+
+
+
+
+</script>
+</body></html>
