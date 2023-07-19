@@ -420,6 +420,7 @@ li{
 }
 #btnn{
    flex: auto;
+    display:none;
 }
 
 
