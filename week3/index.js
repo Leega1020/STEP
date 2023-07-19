@@ -7,7 +7,6 @@ let m3=document.querySelector(".m3")
 let m4=document.querySelector(".m4")
 let btn=document.querySelector("#btnn")
 let butt=document.querySelector(".butt")
-
 let current=0
 let count=4
 let load=document.querySelector("#load")

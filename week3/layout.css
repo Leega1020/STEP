@@ -416,12 +416,12 @@ li{
      margin-left: 47%; 
      justify-content: center;
      align-items: center;
-     display:none;
+     display: none;
     
 }
 #btnn{
    flex: auto;
-    display:none;
+   
 }
 
 
