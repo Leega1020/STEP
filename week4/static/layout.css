@@ -1,0 +1,28 @@
+body{
+    margin: 0px; 
+}
+.header{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    background-color: rgb(3, 53, 100);
+    text-align: center;
+}
+.header h2{
+    color: white;  
+}
+.main{
+    flex:auto;
+    width: 100%;
+    
+    text-align: center;
+    margin-top: 10px;
+}
+.in{
+    margin-top: 10px;
+}
+#input1{
+    bottom: 10px;
+}
