@@ -1,5 +1,5 @@
 ## task 3
--
+- 1
 ```mysql
 insert into member(name,username,password,follower_count) values('Amy','test','test',500);
 insert into member(name,username,password,follower_count) values('Bob','member1','aaa123',200);
@@ -9,9 +9,14 @@ insert into member(name,username,password,follower_count) values('Eddie','member
 ```
 <img src="https://github.com/Leega1020/STEP/assets/134196665/0c740819-5ea2-4904-aaa0-3be5ae059ff9" width="500" height="auto">
 
-- select*from member;
+- 2
+```mysql
+select*from member;
+```
 
-- select*from member order by time asc;
+- 3
+```mysql
+select*from member order by time asc;```
 
 mysql> select*from member order by time asc limit 3 offset 1;
 
