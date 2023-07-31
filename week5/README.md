@@ -1,5 +1,5 @@
 ## task 3
-
+-
 ```mysql
 insert into member(name,username,password,follower_count) values('Amy','test','test',500);
 insert into member(name,username,password,follower_count) values('Bob','member1','aaa123',200);
