@@ -5,8 +5,8 @@ insert into member(name,username,password,follower_count) values('Cathy','member
 insert into member(name,username,password,follower_count) values('Debby','member3','ccc123',1200);
 insert into member(name,username,password,follower_count) values('Eddie','member4','ddd123',500);
 ```
-
 <img src="https://github.com/Leega1020/STEP/assets/134196665/0c740819-5ea2-4904-aaa0-3be5ae059ff9" width="200" height="150">
+
 select*from member;
 
 select*from member order by time asc;
