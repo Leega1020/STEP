@@ -1,4 +1,4 @@
-- ## 3-1
+## task 3
 
 ```mysql
 insert into member(name,username,password,follower_count) values('Amy','test','test',500);
