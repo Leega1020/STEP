@@ -19,7 +19,7 @@ select*from member;
 ```mysql
 select*from member order by time asc;
 ```
-![a](https://github.com/Leega1020/STEP/assets/34196665/d412dc12-33a7-40e8-8f90-56e058e732f8)
+<img src="https://github.com/Leega1020/STEP/assets/134196665/d412dc12-33a7-40e8-8f90-56e058e732f8" width="500" height="auto">
 mysql> select*from member order by time asc limit 3 offset 1;
 
 mysql> select*from member where username='test';
