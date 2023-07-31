@@ -43,7 +43,7 @@ select*from member where username='test'and password='test';
 ```mysql
 update member set name='test2' where username='test';
 ```
-<img src="https://github.com/Leega1020/STEP/assets/134196665/134196665/ead40e11-968b-4654-bf06-c75b689c8e32" width="500" height="auto">
+<img src="https://github.com/Leega1020/STEP/assets/134196665/ead40e11-968b-4654-bf06-c75b689c8e32" width="500" height="auto">
 
 ## task 4
 - 4-1
@@ -80,6 +80,6 @@ on member.id=message.member_id  where member.username='test';
 
 - 5-3
 ```mysql
-mysql> select avg(like_count) from member inner join message on member.id=message.member_id  where member.username='test';
+select avg(like_count) from member inner join message on member.id=message.member_id  where member.username='test';
 ```
 <img src="https://github.com/Leega1020/STEP/assets/134196665/f20e6c89-f0ef-4ba8-a4cf-c5ce66250fdd" width="500" height="auto">
