@@ -13,11 +13,13 @@ insert into member(name,username,password,follower_count) values('Eddie','member
 ```mysql
 select*from member;
 ```
+<img src="https://github.com/Leega1020/STEP/assets/134196665/257164771-e8c14f67-de6b-4ff8-9ec4-560b8ebcbbbd" width="500" height="auto">
 
 - 3-3
 ```mysql
 select*from member order by time asc;
 ```
+<img src="https://github.com/Leega1020/STEP/assets/34196665/257164788-d412dc12-33a7-40e8-8f90-56e058e732f8" width="500" height="auto">
 mysql> select*from member order by time asc limit 3 offset 1;
 
 mysql> select*from member where username='test';
