@@ -60,9 +60,9 @@ select sum(follower_count) from member;
 
 - 4-3
 ```mysql
-select std(follower_count) from member;
+select avg(follower_count) from member;
 ```
-<img src="https://github.com/Leega1020/STEP/assets/134196665/90769443-fbdd-4138-b5e4-c7eebefe8643" width="500" height="auto">
+<img src="https://github.com/Leega1020/STEP/assets/134196665/fe861419-cff4-4985-afe2-7b0f59a55569" width="500" height="auto">
 
 ## task 5
 - 5-1
