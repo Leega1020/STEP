@@ -43,7 +43,7 @@ select*from member where username='test'and password='test';
 ```mysql
 update member set name='test2' where username='test';
 ```
-<img src="https://github.com/Leega1020/STEP/assets/134196665/fe861419-cff4-4985-afe2-7b0f59a55569" width="500" height="auto">
+<img src="https://github.com/Leega1020/STEP/assets/134196665/134196665/ead40e11-968b-4654-bf06-c75b689c8e32" width="500" height="auto">
 
 ## task 4
 - 4-1
