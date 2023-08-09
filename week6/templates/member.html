@@ -36,42 +36,6 @@
               </div>
           {% endfor %}
       </div>
-      
-      
-      
-        
-        
-
-
-
     </body>
-<!-- <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const deleteButtons = document.querySelectorAll('.delete-button');
-      
-        deleteButtons.forEach(button => {
-          button.addEventListener('click', () => {
-            console.log('Delete button clicked.');  // 检查点击事件是否触发
-      
-            const messageId = button.getAttribute('data-message-id');
-            const shouldDelete = confirm('確定要刪除這條留言嗎？');
-      
-            if (shouldDelete) {
-              fetch(`/delete-message/${messageId}`, { method: 'DELETE' })
-                .then(response => response.text())
-                .then(data => {
-                  if (data === 'ok') {
-                    location.reload();
-                  } else {
-                    console.error('删除留言失败');
-                  }
-                })
-                .catch(error => console.error('发生错误：', error));
-            }
-          });
-        });
-      });
-      
-</script> -->
 </html>    
 
