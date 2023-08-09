@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta charset="utf-8">
+        <title>week4</title>
+        <link rel="stylesheet" type="text/css" href="/static/layout.css">
+    </head>
+    <body>
+        <div class="header"><h2>歡迎光臨，請註冊登入系統</h2></div>
+        <div class="main"><h3>註冊帳號</h3>
+            <form action="/signup" method="POST" id="signcheck" class="in">
+                姓名 <input type="text" name="name" id="n1" ><br><br>
+                帳號 <input type="text" name="username" class="input1" id="n2"><br><br>
+                密碼 <input type="password" name="password" id="n3"><br>
+                <button class="in">註冊</button>  
+            </form>
+        </div>
+        <br><hr>
+        <div class="main"><h3>登入系統</h3>
+            <form action="/signin" method="POST" id="signcheck2" class="in">
+                帳號 <input type="text" name="username2" class="input1" id="n4"><br><br>
+                密碼 <input type="password" name="password2" id="n5"><br><br>
+                <button class="sin">登入</button>  
+            </form>
+        </div>     
+    </body>
+
+<script>
+    signcheck = document.querySelector("#signcheck");
+    signcheck.addEventListener("submit", (event) => {
+    nameInput = document.querySelector("#n1").value;
+    usernameInput = document.querySelector("#n2").value;
+    passwordInput = document.querySelector("#n3").value;
+
+    if (nameInput === "" || usernameInput === "" || passwordInput === "") {
+        event.preventDefault();
+        alert("填寫不完整");
+    }
+});
+
+    signcheck2 = document.querySelector("#signcheck2");
+    signcheck2.addEventListener("submit", (event) => {
+        usernameInput = document.querySelector("#n4").value;
+        passwordInput = document.querySelector("#n5").value;
+
+    if (usernameInput === "" || passwordInput === "") {
+        event.preventDefault();
+        alert("填寫不完整");
+        }
+    });
+
+</script>
+
+</html>    
