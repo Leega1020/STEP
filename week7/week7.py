@@ -36,7 +36,6 @@ def signup():
     else:  
         cur.execute("INSERT INTO member(name,username,password) VALUES(%s,%s,%s)",(name,username,password))
         con.commit()
-        con.close()
         return redirect("/")
     
  
@@ -47,7 +46,6 @@ def signin():
     cur=con.cursor()
     cur.execute("SELECT * FROM member WHERE username=%s AND password=%s", (username, password))
     result=cur.fetchone()
-    con.close()
     
     if result:
         session["pass"]=True
@@ -68,7 +66,6 @@ def mem():
         cur=con.cursor()
         cur.execute("SELECT member.name, message.content, message.id, message.member_id FROM member INNER JOIN message ON member.id = message.member_id order by message.time DESC")
         messages=cur.fetchall()
-        con.close()
         return render_template("member.html", name=name, messages=messages)
     
     else:
@@ -94,7 +91,6 @@ def create_message():
         cur=con.cursor()
         cur.execute("INSERT INTO message (content, member_id) VALUES (%s, %s)", (content, member_id))
         con.commit()
-        con.close()
         
     return redirect("/member")
 
@@ -107,7 +103,6 @@ def delete_message():
         cur=con.cursor()
         cur.execute("DELETE FROM message WHERE id = %s AND member_id = %s", (message_id, member_id))
         con.commit()
-        con.close()
 
     return redirect("/member")
 @app.route("/api/member")
@@ -116,7 +111,6 @@ def member_api():
     cur=con.cursor()
     cur.execute("SELECT id,name,username FROM member WHERE username=%s",(username,))
     result=cur.fetchone()
-    con.close()
     if "pass" in session and result is not None:
         data={
             "id": result[0],
@@ -136,7 +130,6 @@ def update_name():
             cur=con.cursor()
             cur.execute("UPDATE member SET name=%s WHERE id=%s",(new_name,id))
             con.commit() 
-            con.close()
             session["name"]=new_name
             return jsonify({"ok":True})
         else:
@@ -144,4 +137,4 @@ def update_name():
     except Exception as e:
         return jsonify({"error":True})
     
-app.run(debug=True)
+app.run(port=3000)
