@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta charset="utf-8">
+        <title>week4</title>
+        <link rel="stylesheet" type="text/css" href="/static/layout.css">
+    </head>
+    <body>
+        <div class="main">
+            <div class="header"><h2>歡迎光臨，這是會員頁</h2></div>
+            <div class="main"><h3>{{name}}，歡迎登入系統</h3></div>
+            <a href="/signout">登出系統</a>
+        </div>
+
+        <br><hr>
+
+        <div class="main"><h3>快來留言吧</h3>
+            <form action="/creatMessage" method="POST" id="signcheck" class="in">
+                內容<input type="text" name="content" id="input1"><br><br>
+               
+            <button class="sin">送出</button>  </form>
+        </div>
+        <br><hr>
+
+        <div class="main">
+          {% for message in messages %}
+              <div class="message">
+                  <span class="message-content"><strong>{{ message[0] }}</strong>: {{ message[1] }}</span>
+                  {% if message[3] == session["member_id"] %}
+                      <form action="/deleteMessage" method="POST" onsubmit="return confirm('確定刪除嗎?')">
+                          <input type="hidden" name="message_id" value="{{ message[2] }}">
+                          <button type="submit" class="delbtn">X</button>
+                      </form>
+                  {% endif %}
+              </div>
+          {% endfor %}
+        </div>
+
+        <br><hr>
+        
+      <div class="main">
+        <h3>查詢會員姓名</h3>
+        <form class="in">
+          <input type="text" id="findMember"><br><br>
+          <button class="sin" id="findBtn">查詢</button>
+        </form>
+      </div>
+
+      <div class="main">
+        <p id="showMember"></p>
+      </div>
+
+      <div class="main">
+        <h3>更新我的姓名</h3>
+        <form class="in">
+          <input type="text" id="updataName" placeholder="輸入新的姓名">
+          <button class="sin" id="updataBtn">更新</button>
+        </form>
+      </div>
+      
+      <div class="main">
+        <h2 id="updateStatus"></h2>
+    </div>
+</body>
+
+  <script>
+    let findBtn = document.getElementById('findBtn');
+    let showMember = document.getElementById('showMember');
+
+    findBtn.addEventListener('click',(event)=>{
+      event.preventDefault() 
+      let findMemberInput=document.querySelector("#findMember").value
+      let url=`http://127.0.0.1:5000/api/member?username=${findMemberInput}`;
+
+      fetch(url,{method:"GET"})
+      .then(response => {
+        if(!response.ok){
+          throw new Error("請求失敗")
+        }
+        return response.json();
+        })
+      .then(data=>{
+        if (data.data) {
+          let name=data.data.name;
+          let username=data.data.username;
+          showMember.innerHTML=`<strong>${name}</strong><span style="font-size:10px;">(${username})</span>`
+        }else{
+          showMember.textContent="無此會員"
+          throw new Error("查詢時發生錯誤")
+        }})
+      .catch(error=>{
+      console.log("Fetch error:",error.message)
+      
+    });
+    
+});
+
+    let updataBtn=document.querySelector("#updataBtn")
+
+    updataBtn.addEventListener("click",(event)=>{
+      event.preventDefault();
+
+    let newName=document.querySelector("#updataName").value;
+    let updateStatus=document.querySelector("#updateStatus");
+
+    fetch("http://127.0.0.1:5000/api/member",{
+        method:"PATCH",
+        headers:{
+            "Content-Type":"application/json"
+        },
+        body:JSON.stringify({
+            name:newName
+        })
+        })
+      .then(response=>{
+        if(!response.ok){
+          throw new Error("請求失敗")
+        }
+          return response.json();
+      })
+      .then(data=>{
+          if(data.ok){
+              updateStatus.textContent="更新成功"; 
+              document.querySelector("#updataName").value ="";
+              let welcomeMessage=document.querySelector(".main h3");
+              welcomeMessage.textContent = newName+"，歡迎登入系統";
+          }else{
+              updateStatus.textContent="更新失敗"; 
+              throw new Error("更新時發生錯誤")
+          }
+        })
+      .catch(error=>{
+          console.log("Fetch error:",error.message);
+          
+      });
+  });
+  </script>
+</html>    
+
